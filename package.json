@@ -1,0 +1,30 @@
+{
+  "name": "egg-config-watcher",
+  "version": "0.0.1",
+  "description": "watching and reloading config files for eggjs",
+  "eggPlugin": {
+    "name": "configWatcher"
+  },
+  "scripts": {
+    "test": "egg-bin test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Claude-Ray/egg-config-watcher.git"
+  },
+  "keywords": [
+    "eggjs"
+  ],
+  "author": "claude-ray",
+  "license": "MIT",
+  "dependencies": {
+    "chokidar": "~2.0.4"
+  },
+  "devDependencies": {
+    "egg": "~2.14.2",
+    "egg-bin": "~4.10.0",
+    "egg-mock": "~3.21.0",
+    "eslint": "~5.12.0",
+    "eslint-config-egg": "~7.1.0"
+  }
+}
