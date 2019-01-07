@@ -1,7 +1,9 @@
 'use strict';
 
+const path = require('path');
+
 module.exports = {
   configWatcher: {
-    path: __dirname,
+    path: path.join(__dirname, '../fixtures/config.custom.js'),
   },
 };

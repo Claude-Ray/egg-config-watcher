@@ -67,3 +67,7 @@ typings/
 
 # package-lock
 package-lock.json
+
+# egg-test
+run
+app
