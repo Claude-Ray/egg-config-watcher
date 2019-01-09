@@ -18,7 +18,8 @@
   "author": "claude-ray",
   "license": "MIT",
   "dependencies": {
-    "chokidar": "~2.0.4"
+    "chokidar": "~2.0.4",
+    "extend2": "~1.0.0"
   },
   "devDependencies": {
     "egg": "~2.14.2",
