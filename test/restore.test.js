@@ -8,28 +8,24 @@ describe('test/config-reload', () => {
   before(() => {
     mm.env('local');
     app = mm.app({
-      baseDir: 'config-reload',
+      baseDir: 'config-restore',
     });
     return app.ready();
   });
   after(() => app.close());
   afterEach(mm.restore);
 
-  it('should reload config when file has been changed', async () => {
+  it('should restore the original config when custom config is removed', async () => {
     assert(app.config.test === true);
 
     const filePath = app.config.configWatcher.path;
     const backupContent = fs.readFileSync(filePath);
     after(() => fs.writeFileSync(filePath, backupContent));
 
-    const testContent = 'module.exports = {test: false};';
+    const testContent = 'module.exports = {};';
     fs.writeFileSync(filePath, testContent);
     await sleep(500);
     assert(app.config.test === false);
-
-    fs.writeFileSync(filePath, backupContent);
-    await sleep(500);
-    assert(app.config.test === true);
   });
 });
 
