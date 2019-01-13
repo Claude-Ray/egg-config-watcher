@@ -6,7 +6,14 @@
     "name": "configWatcher"
   },
   "scripts": {
-    "test": "egg-bin test"
+    "test": "egg-bin test",
+    "cov": "egg-bin cov",
+    "pkgfiles": "egg-bin pkgfiles",
+    "lint": "eslint .",
+    "ci": "npm run lint && egg-bin pkgfiles --check && npm run cov"
+  },
+  "ci": {
+    "version": "8, 10"
   },
   "repository": {
     "type": "git",
@@ -27,5 +34,9 @@
     "egg-mock": "~3.21.0",
     "eslint": "~5.12.0",
     "eslint-config-egg": "~7.1.0"
-  }
+  },
+  "files": [
+    "app.js",
+    "lib"
+  ]
 }
