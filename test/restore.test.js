@@ -18,7 +18,7 @@ describe('test/config-reload', () => {
   it('should restore the original config when custom config is removed', async () => {
     assert(app.config.test === true);
 
-    const filePath = app.config.configWatcher.path;
+    const filePath = app.config.extraConfig.path;
     const backupContent = fs.readFileSync(filePath);
     after(() => fs.writeFileSync(filePath, backupContent));
 

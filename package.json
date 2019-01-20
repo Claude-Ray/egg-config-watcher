@@ -1,9 +1,9 @@
 {
-  "name": "egg-config-watcher",
+  "name": "egg-extra-config",
   "version": "0.0.1",
-  "description": "watching and reloading config files for eggjs",
+  "description": "Extra config plugin for egg",
   "eggPlugin": {
-    "name": "configWatcher"
+    "name": "extraConfig"
   },
   "scripts": {
     "test": "egg-bin test",
@@ -17,10 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Claude-Ray/egg-config-watcher.git"
+    "url": "git+https://github.com/Claude-Ray/egg-extra-config.git"
   },
   "keywords": [
-    "eggjs"
+    "eggjs",
+    "egg-config",
+    "egg-plugin",
+    "eggPlugin"
   ],
   "author": "claude-ray",
   "license": "MIT",

@@ -1,14 +1,33 @@
-# egg-config-watcher
-[![Build Status](https://travis-ci.org/Claude-Ray/egg-config-watcher.svg?branch=master)](https://travis-ci.org/Claude-Ray/egg-config-watcher)
-[![codecov](https://codecov.io/gh/Claude-Ray/egg-config-watcher/branch/master/graph/badge.svg)](https://codecov.io/gh/Claude-Ray/egg-config-watcher)
+# egg-extra-config
+[![Build Status](https://travis-ci.org/Claude-Ray/egg-extra-config.svg?branch=master)](https://travis-ci.org/Claude-Ray/egg-extra-config)
+[![codecov](https://codecov.io/gh/Claude-Ray/egg-extra-config/branch/master/graph/badge.svg)](https://codecov.io/gh/Claude-Ray/egg-extra-config)
 
-To be done...
+Loading config file outside eggjs project path. Watching this file's changes and auto reloading configurations of `app.config` without restarting process.
+
+## Usage
+```js
+// plugin.js
+exports.extraConfig = {
+  enable: true,
+  package: 'egg-extra-config',
+};
+```
+
+## Configuration
+```js
+// config.default.js
+config.extraConfig: {
+  path: '/your/custom/config/path/config.js',
+};
+```
 
 ## TODO
-- [ ] 按照egg的[生命周期](https://github.com/eggjs/egg/blob/master/docs/source/en/advanced/loader.md#life-cycles)，应该在configDidLoad()前完成自定义配置的加载，目前放在app.beforeStart()。~~可能导致有配置加载后，被较晚加载的项目旧配置而覆盖？但由于进入plugin的时候，app.config已经挂上了项目配置，可以认为不会~~
+- [ ] 按照egg的[生命周期](https://github.com/eggjs/egg/blob/master/docs/source/en/advanced/loader.md#life-cycles)，应该在configDidLoad()前完成自定义配置的加载，目前放在app.beforeStart()
 - [ ] 限制只能重载项目config目录内、或不在app.config内的配置
 - [ ] 日志记录变更值
-- [ ] 参考loadConfig，优化配置加载过程
+- [ ] 限制只监视json文件(可选)，避免破坏运行状态
+- [ ] 优化配置加载过程
+- [ ] 支持目录，以egg的方式加载其中配置
 
 ## DONE
 - [x] 监听特定目录或文件变更，将变动应用于配置的重载
