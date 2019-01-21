@@ -14,10 +14,48 @@ exports.extraConfig = {
 ```
 
 ## Configuration
+Configure information in ${app_root}/config/config.default.js:
+
+### Paths
+Support directory path.
+> [chokidar#paths](https://github.com/paulmillr/chokidar#api)(string or array of strings). Paths to files, dirs to be watched recursively, or glob patterns.
+
+#### Single path
 ```js
-// config.default.js
 config.extraConfig: {
   paths: '/your/custom/config/path/config.js',
+};
+```
+
+#### Multi paths
+These files' config reloading has no priority.
+
+However, the same configuration will be overrided in the order of the array only during application starting.
+
+```js
+config.extraConfig: {
+  paths: [
+    '/etc/path/config.js',
+    '/etc/path/dir/',
+    '/etc/path/this-file-might-override-the-above-files.js',
+  ],
+};
+```
+
+### Extensions
+Used to restrict file types.
+
+By default, configuration will be loaded by `require`, this could be dangerous because functions can be executed in a `.js` file.
+
+If you do not want the runtime environment to be destoryed, it is highly recommended to configure `extensions` as `['.json']`.
+
+```js
+config.extraConfig: {
+  paths: [
+    '/etc/path1/',
+    '/etc/path2/',
+  ],
+  extensions: [ '.json' ],
 };
 ```
 
