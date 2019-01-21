@@ -17,7 +17,7 @@ exports.extraConfig = {
 ```js
 // config.default.js
 config.extraConfig: {
-  path: '/your/custom/config/path/config.js',
+  paths: '/your/custom/config/path/config.js',
 };
 ```
 
@@ -25,12 +25,14 @@ config.extraConfig: {
 - [ ] 按照egg的[生命周期](https://github.com/eggjs/egg/blob/master/docs/source/en/advanced/loader.md#life-cycles)，应该在configDidLoad()前完成自定义配置的加载，目前放在app.beforeStart()
 - [ ] 限制只能重载项目config目录内、或不在app.config内的配置
 - [ ] 日志记录变更值
-- [ ] 限制只监视json文件(可选)，避免破坏运行状态
 - [ ] 优化配置加载过程
-- [ ] 支持目录，以egg的方式加载其中配置
+- [ ] 文件变更防抖动
 
 ## DONE
 - [x] 监听特定目录或文件变更，将变动应用于配置的重载
 - [x] 在app.ready()前完成自定义配置的加载，借助了app.beforeStart()
 - [x] 优化拷贝过程，支持嵌套对象的内部变更
 - [x] 删除自定义配置后，重新加载项目内对应配置
+- [x] 支持配置多个文件，参考[chokidar API](https://github.com/paulmillr/chokidar#api)#paths：(string or array of strings) "Paths to files, dirs to be watched recursively, or glob patterns"。 但不做优先级处理，仅在配置加载过程中按照数组顺序来覆盖相同配置。
+- [x] 支持目录，~~以egg的方式加载其中配置~~，通过require.resolve修正路径，按照module的形式读取
+- [x] 限制文件类型(可选)，例如只监视`.json`，避免`.js`文件破坏运行状态
