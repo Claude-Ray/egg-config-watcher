@@ -29,6 +29,7 @@
   "license": "MIT",
   "dependencies": {
     "chokidar": "~2.0.4",
+    "debounce": "~1.2.0",
     "extend2": "~1.0.0"
   },
   "devDependencies": {

@@ -64,7 +64,7 @@ config.extraConfig: {
 - [ ] 限制只能重载项目config目录内、或不在app.config内的配置
 - [ ] 日志记录变更值
 - [ ] 优化配置加载过程
-- [ ] 文件变更防抖动
+- [ ] IPC
 
 ## DONE
 - [x] 监听特定目录或文件变更，将变动应用于配置的重载
@@ -74,3 +74,4 @@ config.extraConfig: {
 - [x] 支持配置多个文件，参考[chokidar API](https://github.com/paulmillr/chokidar#api)#paths：(string or array of strings) "Paths to files, dirs to be watched recursively, or glob patterns"。 但不做优先级处理，仅在配置加载过程中按照数组顺序来覆盖相同配置。
 - [x] 支持目录，~~以egg的方式加载其中配置~~，通过require.resolve修正路径，按照module的形式读取
 - [x] 限制文件类型(可选)，例如只监视`.json`，避免`.js`文件破坏运行状态
+- [x] 文件变更防抖动
