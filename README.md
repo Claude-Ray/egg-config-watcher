@@ -4,6 +4,11 @@
 
 Loading config file outside eggjs project path. Watching this file's changes and auto reloading configurations of `app.config` without restarting process.
 
+## Install
+```sh
+npm install egg-extra-config
+```
+
 ## Usage
 ```js
 // plugin.js
